@@ -1,0 +1,31 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+body {
+    background-image: url("/assets/bg weboom.png");
+    background-attachment: scroll;
+}
+
+header {
+    background-image: linear-gradient(to right, blue, pink, purple);
+}
+
+header h1{
+    background-image: linear-gradient(to right, darkblue, purple, blue, purple, darkblue);
+    background-clip: text;
+    color: transparent;
+    font-size: 50px;
+}
+
+.maincon p {
+    font-size: 50px;
+}
+
+.maincon span {
+    background-image: linear-gradient(to right, blue, pink,  purple);
+    background-clip: text;
+    color: transparent;
+}
