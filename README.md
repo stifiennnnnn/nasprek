@@ -1,0 +1,2 @@
+# nasprek
+ini buat pikpek
