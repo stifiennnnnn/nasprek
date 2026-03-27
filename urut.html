@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>8 Puzzle Challenge</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="preloader.css">
     <style>
         :root {
             --success-border: rgba(76, 175, 80, 0.5);
@@ -25,7 +24,6 @@
 
         h1 { margin-top: 20px; color: #333; }
 
-        /* Area Target - Dibuat tidak terlihat (Invisible) */
         .drop-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -37,7 +35,6 @@
         .target-zone {
             width: 120px;
             height: 120px;
-            /* Invisible state */
             border: 2px solid transparent; 
             background: transparent;
             border-radius: 15px;
@@ -48,12 +45,10 @@
             transition: all 0.3s;
         }
 
-        /* Memberi sedikit petunjuk tipis hanya saat drag (opsional) */
         .target-zone.dragging-active {
             border: 1px dashed #ccc;
         }
 
-        /* Gambar yang bisa digeser */
         .draggable {
             width: 100px;
             height: 100px;
@@ -66,7 +61,6 @@
             touch-action: none;
         }
 
-        /* Saat terkunci: Muncul border tebal transparan */
         .is-locked {
             position: static !important;
             cursor: pointer !important;
@@ -74,7 +68,6 @@
             transition: box-shadow 0.3s ease;
         }
 
-        /* Info Text */
         .info-card {
             display: none;
             position: absolute;
@@ -126,7 +119,6 @@
                 startX = e.clientX - img.offsetLeft;
                 startY = e.clientY - img.offsetTop;
                 img.style.zIndex = 1000;
-                // Opsional: Tampilkan sedikit garis bantu pada target saat menyeret
                 targets.forEach(t => t.classList.add('dragging-active'));
             });
 
@@ -168,16 +160,8 @@
             });
         }
     </script>
-
-    <div id="preloader">
-            <div class="loader-content">
-                <img src="assets/bg weboom.png" alt="Space Logo" class="loader-img">
-            </div>
-    </div>
-    
-    <a href="Belajar.html">
+    <a href="QuizMenu.html">
         <img src="assets/Return.png" class="Return">
         </a>
 </body>
-    <script SRC="script.js"></script>
 </html>
