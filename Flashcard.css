@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("assets/bg weboom.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 122vh;
+    text-align: center;
+}
+
+.Hello {
+    position: absolute;
+    font-size: 50px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    top: 10px;
+    left: 330px;
+    z-index: 2;
+}
+
+.Rectangle4 {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    transform: translateY(40px);
+    z-index: -3;
+}
+
+.Saturn {
+    position: absolute;
+    width: 250px;
+    top: 35px;
+    right: 150px;
+}
+
+.QuizKotak {
+    position: absolute;
+    width: 370px;
+    left: 280px;
+}
+
+.FlashcardKotak {
+    position: absolute;
+    width: 390px;
+    right: 270px;
+}
+
+.buttons {
+    position: relative;
+    margin-top: 100px;
+}
+
+.Bumi3 {
+    position: absolute;
+    pointer-events: none;
+    z-index: -6;
+    left: 160px;
+    margin-top: 40px;
+}
+
+.Alien {
+    display: block;
+    position: relative;
+    pointer-events: none;
+    z-index: 3;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(150px);
+}
+
+.Credit {
+    display: block;
+    position: relative;
+    width: 780px;
+    margin-right: auto;
+    margin-left: auto;
+    transform: translateY(135px);
+}
+
+.BintangJatoh2 {
+    position: absolute;
+    bottom: -100px;
+    left: 80px;
+}
+
+.RoketFull {
+    position: absolute;
+    bottom: -30px;
+    right: 50px;
+}
