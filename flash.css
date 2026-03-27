@@ -1,4 +1,3 @@
-/* Reset Dasar */
 * {
     margin: 0;
     padding: 0;
@@ -25,21 +24,18 @@ body {
     height: 100vh;
 }
 
-/* CONTAINER UTAMA (JANGKAR POSISI) */
 .scene {
     width: 850px; 
     height: 566px;
     perspective: 2000px; 
-    position: relative; /* Tombol Back & Navigasi akan mengacu ke sini */
+    position: relative;
 }
 
-/* POSISI TOMBOL BACK - PERKECIL DISTANCE, PERBESAR UKURAN */
 .btn-back {
     position: absolute;
-    /* Sesuaikan agar pas di pojok, jangan terlalu jauh di luar */
-    top: 30px;    /* Sedikit naik dari posisi sebelumnya agar pas */
-    left: -150px;   /* Sedikit ke kanan agar pas di pojok */
-    z-index: 30;  /* Pastikan di atas */
+    top: 30px;    
+    left: -150px; 
+    z-index: 50;  
     background: none;
     border: none;
     cursor: pointer;
@@ -51,12 +47,10 @@ body {
 }
 
 .btn-back img { 
-    /* PERBESAR UKURAN IKON */
-    width: 100px; /* Naik drastis dari 55px/65px agar mantap */
-    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3)); /* Opsional: tambah bayangan agar terlihat 'melayang' */
+    width: 100px; 
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3)); 
 }
 
-/* LOGIKA KARTU */
 .card {
     width: 100%;
     height: 100%;
@@ -81,14 +75,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 90px; /* Ruang agar teks tetap di area putih kartu */
+    padding: 90px; 
 }
 
 .card-back {
     transform: rotateY(180deg);
 }
 
-/* TEKS DI DALAM KARTU */
 .content-wrapper p {
     color: #3E5380;
     font-size: 2.2rem;
@@ -97,10 +90,9 @@ body {
     font-weight: 500;
 }
 
-/* NAVIGASI BAWAH (DI DALAM AREA KARTU TAPI TIDAK IKUT BERPUTAR) */
 .nav-container {
     position: absolute;
-    bottom: 45px; /* Mengunci posisi di atas area biru gelap kartu */
+    bottom: 45px; 
     left: 0;
     right: 0;
     display: flex;
