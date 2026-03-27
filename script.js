@@ -130,3 +130,90 @@ if (window.location.pathname.includes('QuizMenu.html')) {
         localStorage.removeItem(`jawaban_soal${i}.html`);
     }
 }
+
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    preloader.classList.add('active'); 
+
+    setTimeout(() => {
+        preloader.classList.remove('active');
+        preloader.classList.add('loaded');
+    }, 500);
+});
+
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (this.hostname === window.location.hostname && !this.hash && this.target !== "_blank") {
+            e.preventDefault();
+            const destination = this.href;
+            const preloader = document.getElementById('preloader');
+
+            preloader.classList.remove('loaded');
+            preloader.classList.add('active');
+
+            setTimeout(() => {
+                window.location.href = destination;
+            }, 900); 
+        }
+    });
+});
+
+const flashcardData = [
+    { q: "Benda padat kecil berukuran dari butiran debu hingga bebatuan kecil (asteroid kecil) yang bergerak di ruang antarplanet", a: "Meteoroid" },
+    { q: "Nama planet yang menjadi tempat tinggal kita adalah...", a: "Bumi" },
+    { q: "Batu meteor yang berhasil bertahan melewati atmosfer dan jatuh ke permukaan Bumi", a: "Meteorit" },
+    { q: "Benda langit besar berwujud padat yang mengorbit Matahari, sebagian besar berada di antara orbit Mars dan Jupiter", a: "Asteroid" },
+    { q: "Benda langit kecil, seringkali es dan debu, yang memiliki ekor gas dan debu ketika mendekati Matahari", a: "Komet" },
+    { q: "Gaya tarik-menarik antara dua objek yang memiliki massa", a: "Gravitasi" },
+    { q: "Wadah untuk mengukur massa benda", a: "Neraca / Timbangan" },
+    { q: "Fungsi utama atmosfer bumi", a: "Melindungi bumi dari radisi dan benda luar angkasa" },
+    { q: "Lapisan atmosfer paling luar yang berbatasan langsung dengan luar angkasa", a: "Eksosfer" },
+    { q: "Istilah untuk kumpulan bintang, gas, dan debu yang terikat oleh gravitasi", a: "Galaksi" }
+];
+
+let currentIndex = 0;
+const card = document.getElementById('flashcard');
+const questionText = document.getElementById('questionText');
+const answerText = document.getElementById('answerText');
+const cardCounter = document.getElementById('cardCounter');
+
+function flipCard() {
+    card.classList.toggle('is-flipped');
+}
+
+function updateCardContent() {
+    card.classList.remove('is-flipped');
+    
+    setTimeout(() => {
+        if (flashcardData[currentIndex]) {
+            questionText.innerText = flashcardData[currentIndex].q;
+            answerText.innerText = flashcardData[currentIndex].a;
+            cardCounter.innerText = `${currentIndex + 1} / ${flashcardData.length}`;
+        }
+    }, 300);
+}
+
+function nextCard() {
+    if (currentIndex < flashcardData.length - 1) {
+        currentIndex++;
+        updateCardContent();
+    } else {
+        alert("Selesai belajar! Lanjut ke Quiz?");
+    }
+}
+
+function prevCard() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCardContent();
+    }
+}
+
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+        preloader.style.display = 'none';
+    }, 2000);
+});
+
+updateCardContent();
