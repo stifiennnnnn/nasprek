@@ -62,7 +62,7 @@ header .bawah {
     margin-right: auto;
     z-index: -1;
     pointer-events: none;
-    transform: translateY(90px);
+    transform: translateY(70px);
 }
 
 .gambar4 {
