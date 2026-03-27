@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Result.css">
+    <link rel="stylesheet" href="preloader.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-content">
+            <img src="assets/bg weboom.png" alt="Space Logo" class="loader-img">
+        </div>
+    </div>
+
+    <div class="result-container">
+        <h1>HASIL KUIS KAMU!</h1>
+    
+        <div class="progress-bg">
+            <div id="progressBar" class="progress-fill">
+                <span id="persenTeks">0%</span>
+            </div> </div>
+    </div>
+    <a href="QuizMenu.html" onclick="localStorage.setItem('skorKuis', 0);">
+    <img src="assets/Return.png" class="Return">
+    </a>
+    <ul id="listJawaban"></ul>
+</body>
+    <script src="script.js"></script>
+</html>
