@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Puzzle Challenge</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --success-border: rgba(76, 175, 80, 0.5);
+            --info-bg: #2d3748;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        h1 { margin-top: 20px; color: #333; }
+
+        /* Area Target - Dibuat tidak terlihat (Invisible) */
+        .drop-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        .target-zone {
+            width: 120px;
+            height: 120px;
+            /* Invisible state */
+            border: 2px solid transparent; 
+            background: transparent;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        /* Memberi sedikit petunjuk tipis hanya saat drag (opsional) */
+        .target-zone.dragging-active {
+            border: 1px dashed #ccc;
+        }
+
+        /* Gambar yang bisa digeser */
+        .draggable {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            cursor: grab;
+            position: absolute;
+            z-index: 10;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            touch-action: none;
+        }
+
+        /* Saat terkunci: Muncul border tebal transparan */
+        .is-locked {
+            position: static !important;
+            cursor: pointer !important;
+            box-shadow: 0 0 0 10px var(--success-border) !important;
+            transition: box-shadow 0.3s ease;
+        }
+
+        /* Info Text */
+        .info-card {
+            display: none;
+            position: absolute;
+            bottom: -70px;
+            width: 160px;
+            background: var(--info-bg);
+            color: white;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            text-align: center;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="drop-grid">
+        <div class="target-zone" data-match="p1"><div class="info-card" style="top:450px; left:35%">Info 1: Merkurius</div></div>
+        <div class="target-zone" data-match="p2"><div class="info-card">Info 2: Venus</div></div>
+        <div class="target-zone" data-match="p3"><div class="info-card">Info 3: Bumi</div></div>
+        <div class="target-zone" data-match="p4"><div class="info-card">Info 4: Mars</div></div>
+        <div class="target-zone" data-match="p5"><div class="info-card">Info 5: Jupiter</div></div>
+        <div class="target-zone" data-match="p6"><div class="info-card">Info 6: Saturnus</div></div>
+        <div class="target-zone" data-match="p7"><div class="info-card">Info 7: Uranus</div></div>
+        <div class="target-zone" data-match="p8"><div class="info-card">Info 8: Neptunus</div></div>
+    </div>
+
+    <img src="ASSETS/mercury.png" class="draggable" id="p1" style="top:450px; left:10%;">
+    <img src="ASSETS/venus.png" class="draggable" id="p2" style="top:45px; left:30%;">
+    <img src="ASSETS/earth.png" class="draggable" id="p3" style="top: 30px; left:50%;">
+    <img src="ASSETS/mars.png" class="draggable" id="p4" style="top:50px; left:70%;">
+    <img src="ASSETS/Jupiter.png" class="draggable" id="p5" style="top:100px; left:15%;">
+    <img src="ASSETS/Saturn.png" class="draggable" id="p6" style="top:280px; left:35%;">
+    <img src="ASSETS/uranus.png" class="draggable" id="p7" style="top:580px; left:55%;">
+    <img src="ASSETS/neptunus.png" class="draggable" id="p8" style="top:480px; left:75%;">
+
+    <script>
+        const draggables = document.querySelectorAll('.draggable');
+        const targets = document.querySelectorAll('.target-zone');
+
+        draggables.forEach(img => {
+            let isDragging = false;
+            let startX, startY;
+
+            img.addEventListener('mousedown', (e) => {
+                if (img.classList.contains('is-locked')) return;
+                isDragging = true;
+                startX = e.clientX - img.offsetLeft;
+                startY = e.clientY - img.offsetTop;
+                img.style.zIndex = 1000;
+                // Opsional: Tampilkan sedikit garis bantu pada target saat menyeret
+                targets.forEach(t => t.classList.add('dragging-active'));
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                img.style.left = `${e.clientX - startX}px`;
+                img.style.top = `${e.clientY - startY}px`;
+            });
+
+            document.addEventListener('mouseup', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                targets.forEach(t => t.classList.remove('dragging-active'));
+                checkDrop(img, e.clientX, e.clientY);
+            });
+
+            img.addEventListener('click', () => {
+                if (img.classList.contains('is-locked')) {
+                    const info = img.parentElement.querySelector('.info-card');
+                    info.style.display = (info.style.display === 'block') ? 'none' : 'block';
+                }
+            });
+        });
+
+        function checkDrop(img, mouseX, mouseY) {
+            targets.forEach(target => {
+                const rect = target.getBoundingClientRect();
+                if (mouseX >= rect.left && mouseX <= rect.right && 
+                    mouseY >= rect.top && mouseY <= rect.bottom) {
+                    
+                    if (target.getAttribute('data-match') === img.id) {
+                        target.appendChild(img);
+                        img.classList.add('is-locked');
+                        img.style.left = "auto";
+                        img.style.top = "auto";
+                        img.style.zIndex = 1;
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
