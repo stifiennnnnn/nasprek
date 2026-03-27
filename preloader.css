@@ -1,0 +1,53 @@
+/* --- CSS GLOBAL UNTUK PRELOADER --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    
+    /* Warna background loader */
+    background-color: #ffffff; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Pastikan di atas segalanya */
+    
+    /* FIX: Posisi awal stand-by menutupi layar (0), bukan -100% */
+    /* Ini biar nggak ada efek 'turun 2 kali' saat halaman baru load */
+    transform: translateY(0); 
+    
+    /* Kecepatan dan jenis transisi smooth */
+    transition: transform 0.9s cubic-bezier(0.8, 0, 0.2, 1);
+    
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    pointer-events: all; /* Mencegah klik ke elemen di bawahnya saat aktif */
+}
+
+/* Kondisi: Loader keluar/naik (Dipicu JS saat halaman selesai load) */
+#preloader.loaded {
+    transform: translateY(-140%); /* Naik ke atas sampai hilang */
+    pointer-events: none; /* Biar user bisa klik konten setelah preloader hilang */
+}
+
+/* Kondisi: Loader masuk/turun (Dipicu JS saat link diklik) */
+#preloader.active {
+    transform: translateY(0);
+}
+
+/* Menata Image space.png */
+.loader-img {
+    width: 100%; /* Ukuran default, sesuaikan jika perlu */
+    height: auto;
+    
+    /* Animasi pulse */
+    animation: spacePulse 2s ease-in-out infinite;
+}
+
+/* Animasi pulse untuk gambar */
+@keyframes spacePulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.03); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.9; }
+}
