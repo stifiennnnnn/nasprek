@@ -45,6 +45,11 @@ header .bawah {
     left: 200px;
     top: 100px;
     cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.gambar:hover {
+    opacity: 0.3;
 }
 
 .gambar2 {
@@ -53,6 +58,11 @@ header .bawah {
     right: 200px;
     top: 101px;
     cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.gambar2:hover {
+    opacity: 0.3;
 }
 
 .gambar3 {
