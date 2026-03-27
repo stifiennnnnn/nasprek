@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("assets/bg weboom.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 122vh;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 80px;
+    color: white;
+    margin-top: 80px;
+    left: 350px;
+    position: absolute;
+}
+
+.Hello {
+    position: absolute;
+    font-size: 50px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    top: 10px;
+    left: 330px;
+    z-index: 5;
+}
+
+.Rectangle4 {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    transform: translateY(40px);
+    z-index: -3;
+}
+
+.Saturn {
+    position: absolute;
+    width: 250px;
+    top: 35px;
+    right: 150px;
+}
+
+.QuizKotak {
+    position: absolute;
+    width: 370px;
+    left: 280px;
+    transition: opacity 0.3s;
+}
+
+.FlashcardKotak {
+    position: absolute;
+    width: 390px;
+    right: 270px;
+    transition: opacity 0.3s;
+}
+
+.QuizKotak:hover {
+    opacity: 0.5;
+}
+
+.FlashcardKotak:hover {
+    opacity: 0.5;
+}
+
+.buttons {
+    position: relative;
+    margin-top: 100px;
+}
+
+.Bumi3 {
+    position: absolute;
+    pointer-events: none;
+    z-index: -6;
+    left: 160px;
+    margin-top: 40px;
+}
+
+.Alien {
+    display: block;
+    position: relative;
+    pointer-events: none;
+    z-index: 3;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(150px);
+}
+
+.Credit {
+    display: block;
+    position: relative;
+    width: 780px;
+    margin-right: auto;
+    margin-left: auto;
+    transform: translateY(30px);
+    transition: opacity 0.3s;
+}
+
+.Credit:hover {
+    opacity: 0.5;
+}
+
+.BintangJatoh2 {
+    position: absolute;
+    bottom: -100px;
+    left: 80px;
+}
+
+.RoketFull {
+    position: absolute;
+    bottom: -30px;
+    right: 50px;
+}
+
+.Return {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: 150px;
+    transition: opacity 0.3s;
+}
+
+.Return:hover {
+    opacity: 0.5;
+}
