@@ -1,0 +1,81 @@
+** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url("assets/bg weboom.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Rectangle5 {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    margin-top: 30px;
+    z-index: -3;
+}
+
+.Soal {
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    z-index: -2;
+    margin-top: -610px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    letter-spacing: 2px;
+    line-height: 50px;
+    color: #4C6C87;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tombols button {
+    display: block;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    color: #4C6C87;
+    background: transparent;
+    border-radius: 15px;
+    border-color: #6AA1CE;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: 10px 20px;
+    width: 350px;
+}
+
+.tombols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+    column-gap: -340px;
+    margin: 0 auto;
+    max-width: 750px;
+}
+
+.Return {
+    position: absolute;
+    width: 150px;
+    right: 700px;
+    top: 650px;
+    z-index: 10;
+    bottom: 540px;
+}
+
+.Next {
+    position: absolute;
+    width: 150px;
+    left: 700px;
+    top: 650px;
+    transform: scaleX(-1);
+}
