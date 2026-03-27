@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ld">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Menu</title>
+    <link rel="stylesheet" href="QuizMenu.css">
+    <link rel="stylesheet" href="preloader.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-content">
+            <img src="assets/bg weboom.png" alt="Space Logo" class="loader-img">
+        </div>
+    </div>
+    <header>
+        <p class="Hello">HALLO!</p>
+        <h1 id="tampilNama"></h1>
+    </header>
+
+    <img src="assets/Rectangle4.png" class="Rectangle4">
+    <img src="assets/Saturn.png" class="Saturn">
+
+    <div class="buttons">
+    <a href="soal1.html">
+        <img src="assets/QuizKotak.png" class="QuizKotak">
+    </a>
+    <a href="">
+        <img src="assets/FlashcardKotak.png" class="FlashcardKotak">
+    </a>
+    </div>
+    <img src="assets/Bumi3.png" class="Bumi3">
+    <img src="assets/Alien.png" class="Alien">
+    <div class="buttons">
+        <a href="Credit.html">
+        <img src="assets/Credit.png" class="Credit">
+        </a>
+    </div>
+    <img src="assets/BintangJatoh2.png" class="BintangJatoh2">
+    <img src="assets/RoketFull.png" class="RoketFull">
+    <a href="Belajar Astronomi.html">
+    <img src="assets/Return.png" class="Return">
+    </a>
+
+    <script>
+        const nama = localStorage.getItem("namaUser");
+        
+        if (nama) {
+            document.getElementById("tampilNama").textContent = nama
+        } else {
+            document.getElementById("tampilNama").textContent = nama
+        }
+    </script>
+    <script SRC="script.js"></script>
+</body>
+</html>
