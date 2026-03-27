@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceDive</title>
+    <link rel="stylesheet" href="flash.css">
+    <link rel="stylesheet" href="preloader.css">
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">   
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-content">
+            <img src="assets/bg weboom.png" alt="Space Logo" class="loader-img">
+        </div>
+    </div>
+
+    <div class="main-container">
+    <div class="scene">
+        <a href="QuizMenu.html" class="btn-back">
+            <img src="assets/Return.png" class="Return">
+        </a>
+
+        <div class="card" id="flashcard" onclick="flipCard()">
+            <div class="card-face card-front">
+                <div class="content-wrapper">
+                    <p id="questionText">Benda padat kecil berukuran dari butiran debu hingga bebatuan kecil...</p>
+                </div>
+            </div>
+
+            <div class="card-face card-back">
+                <div class="content-wrapper">
+                    <p id="answerText">Meteoroid</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-container">
+            <button class="nav-btn" onclick="event.stopPropagation(); prevCard();">
+                <img src="assets/Group 42.png" alt="Prev">
+            </button>
+            <span id="cardCounter">1 / 10</span>
+            <button class="nav-btn" onclick="event.stopPropagation(); nextCard();">
+                <img src="assets/Group 43.png" alt="Next">
+            </button>
+        </div>
+    </div>
+</div>  
+</body>
+<script src="script.js"></script>
+</html>
