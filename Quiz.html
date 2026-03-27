@@ -7,8 +7,14 @@
         <link rel="stylesheet" href="Quiz.css">
         <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="preloader.css">
     </head>
     <body>
+        <div id="preloader">
+            <div class="loader-content">
+                <img src="assets/bg weboom.png" alt="Space Logo" class="loader-img">
+            </div>
+        </div>
         <header>
             <p class="SD">Selamat Datang</p>
             <p class="deks">Sebelum mulai menggunakan quiziz dan flashcard, ayo masukan nama mu!</p>
@@ -16,11 +22,20 @@
         
         <img src="assets/Rectangle3.png" class="Rectangle3">
 
-        <a href="">
-        <p class="Masuk">Masuk</p>
+        <a href="QuizMenu.html">
         </a>
 
-        <input type="text" id="nama" placeholder="ketik nama mu" max="30">
+        <form action="QuizMenu.html" onsubmit="simpanNama()">
+            <input type="text" id="nama" placeholder="ketik nama mu" maxlength="30" required>
+            <button type="submit" class="Masuk">Masuk</button>
+        </form>
+
+        <script>
+            function simpanNama() {
+                const nama = document.getElementById("nama").value;
+                localStorage.setItem("namaUser", nama);
+            }
+        </script>
 
         <img src="assets/Rectangle.png" class="Rectangle">
         <img src="assets/Saturn.png" class="Saturn">
@@ -29,3 +44,5 @@
         <img src="assets/Falling Star.png" class="Jatoh">
         <img src="assets/Rectangle2.png" class="Rectangle2">
     </body>
+    <script SRC="script.js"></script>
+    </html>
