@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("assets/bg weboom.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    min-height: 122vh;
+    text-align: center;
+}
+
+header p {
+    text-align: center;
+    font-family: 'Hachi Maru Pop', cursive;
+    font-size: 50px;
+    color: white;
+    margin: 0;
+}
+
+.isi {
+    display: inline-block;
+    text-align: justify;
+    background-color: #E5E8F3;
+    width: 1000px;
+    transform: translateY(50px);
+    margin: auto;
+    padding: 50px 70px;
+    border-radius: 30px;
+    max-width: 90%;           
+    word-wrap: break-word;     
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    height: 674px;
+    overflow-y: auto;
+}
+
+.isi::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.Roket {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    transform: rotate(-45deg);
+    margin-top: -130px;
+    right: 230px;
+    width: 220px;
+}
+
+.Star {
+    position: absolute;
+    pointer-events: none;
+    left: 80px;
+    margin-top: 30px;
+}
+
+.Return {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: 150px;
+    transition: opacity 0.3s;
+}
+
+.Return:hover {
+    opacity: 0.5;
+}
